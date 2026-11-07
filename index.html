@@ -62815,5 +62815,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
       };
       run().catch(handleError);
     </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./sw.js")
+            .then(() => console.log("Mode offline berhasil diaktifkan"))
+            .catch((error) => console.error("Service Worker gagal:", error));
+        });
+      }
+    </script>
   </body>
 </html>
